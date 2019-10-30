@@ -26,7 +26,6 @@ import {
 } from './assets/icons'
 import { PlaybackStatus } from 'expo-av/build/AV'
 import { VideoProps } from 'expo-av/build/Video'
-import { useNetInfo } from '@react-native-community/netinfo'
 import { withDefaultProps } from 'with-default-props'
 import React, { ReactNode, useEffect, useState } from 'react'
 
@@ -171,7 +170,7 @@ const VideoPlayer = (props: Props) => {
   let shouldPlayAtEndOfSeek = false
   let controlsTimer: number | null = null
 
-  const { isConnected } = useNetInfo()
+  const { isConnected } = true;
   const [playbackState, setPlaybackState] = useState<PlaybackStates>(PlaybackStates.Loading)
   const [lastPlaybackStateUpdate, setLastPlaybackStateUpdate] = useState<number>(Date.now())
   const [seekState, setSeekState] = useState<SeekStates>(SeekStates.NotSeeking)
