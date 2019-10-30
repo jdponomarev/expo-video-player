@@ -2,7 +2,6 @@ import { __rest } from "tslib";
 import { Animated, Dimensions, Slider, Text, TouchableOpacity, TouchableWithoutFeedback, View, } from 'react-native';
 import { Audio, Video } from 'expo-av';
 import { FullscreenEnterIcon, FullscreenExitIcon, PauseIcon, PlayIcon, ReplayIcon, Spinner, } from './assets/icons';
-import { useNetInfo } from '@react-native-community/netinfo';
 import { withDefaultProps } from 'with-default-props';
 import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -84,7 +83,7 @@ const VideoPlayer = (props) => {
     let hideAnimation = null;
     let shouldPlayAtEndOfSeek = false;
     let controlsTimer = null;
-    const { isConnected } = useNetInfo();
+    const { isConnected } = true;
     const [playbackState, setPlaybackState] = useState(PlaybackStates.Loading);
     const [lastPlaybackStateUpdate, setLastPlaybackStateUpdate] = useState(Date.now());
     const [seekState, setSeekState] = useState(SeekStates.NotSeeking);
